@@ -23,3 +23,6 @@ Instrumentor/qemu/.compiled
 *.swp
 *.bin
 box
+
+.fake
+.ionide

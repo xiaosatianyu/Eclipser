@@ -78,6 +78,7 @@ let allocResource opt =
     let randFuzzBudget = int (float totalBudget * randFuzzRatio)
     (greyConcBudget, randFuzzBudget)
 
+//grey求解
 let rec greyConcolicLoop opt concQ randQ =
   if Executor.isResourceExhausted () || ConcolicQueue.isEmpty concQ
   then (concQ, randQ)
@@ -135,6 +136,7 @@ let repeatRandFuzz opt concQ randQ randFuzzBudget =
   RandomFuzz.updateStatus opt randExecNum randNewPathNum
   (concQ, randQ)
 
+//rec递归函数
 let rec fuzzLoop opt concQ randQ =
   // Note that random fuzzing queue is always non-empty, since it's involatile.
   if not (opt.GreyConcolicOnly && ConcolicQueue.isEmpty concQ) then

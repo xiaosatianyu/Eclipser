@@ -1,6 +1,7 @@
-module Eclipser.BytesUtils
+module Eclipser.BytesUtils 
+// 顶层模块声明
 
-open System
+open System //表示使用某个模块
 open Utils
 
 /// Types and functions related to byte sequence manipulation.

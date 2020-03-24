@@ -11,6 +11,7 @@ let printUsage () =
   printLine "decode : Mode for decoding generated test cases of JSON format."
   printLine "         Use 'dotnet Eclipser.dll decode --help' for details."
 
+//根据第一个参数进行选择
 let runMode (mode: string) optArgs =
   match mode.ToLower() with
   | "fuzz" -> Fuzz.run optArgs
@@ -18,6 +19,7 @@ let runMode (mode: string) optArgs =
   | "decode" -> Decode.run optArgs
   | _ -> printUsage ()
 
+//入口函数
 [<EntryPoint>]
 let main args =
   if Array.length args <= 1
