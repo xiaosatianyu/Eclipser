@@ -9,14 +9,14 @@ x86: $(BUILDDIR) $(QEMUDIR)/.compiled_x86 Eclipser
 x64: $(BUILDDIR) $(QEMUDIR)/.compiled_x64 Eclipser
 
 clean:
-	rm -f $(SHDIR)/.compiled
-	rm -rf $(SHDIR)/build
-	rm -f $(QEMUDIR)/.prepared
-	rm -f $(QEMUDIR)/.compiled
-	rm -f $(QEMUDIR)/.compiled_x86
-	rm -f $(QEMUDIR)/.compiled_x64
-	rm -rf $(QEMUDIR)/qemu-2.3.0
-	rm -rf $(QEMUDIR)/qemu-2.3.0-*
+	#rm -f $(SHDIR)/.compiled
+	#rm -rf $(SHDIR)/build
+	#rm -f $(QEMUDIR)/.prepared
+	#rm -f $(QEMUDIR)/.compiled
+	#rm -f $(QEMUDIR)/.compiled_x86
+	#rm -f $(QEMUDIR)/.compiled_x64
+	#rm -rf $(QEMUDIR)/qemu-2.3.0
+	#rm -rf $(QEMUDIR)/qemu-2.3.0-*
 	rm -rf $(BUILDDIR)
 
 $(BUILDDIR):
@@ -42,9 +42,9 @@ $(QEMUDIR)/.compiled_x64: $(SHDIR)/.compiled $(QEMUDIR)/.prepared
 	@touch $@
 
 $(BUILDDIR)/libexec.dll: src/Executor/libexec.c
-	gcc -O3 -shared -fPIC $< -o $@
+	gcc -O0 -debug -shared -fPIC $< -o $@
 
 Eclipser: $(BUILDDIR)/libexec.dll
-	dotnet build -c Release -o $(BUILDDIR)
+	dotnet build -c debug -o $(BUILDDIR)
 
 .PHONY: all x86 x64 clean Eclipser

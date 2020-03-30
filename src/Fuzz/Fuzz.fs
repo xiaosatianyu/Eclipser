@@ -83,7 +83,7 @@ let rec greyConcolicLoop opt concQ randQ =
   if Executor.isResourceExhausted () || ConcolicQueue.isEmpty concQ
   then (concQ, randQ)
   else
-    let pr, seed, concQ = ConcolicQueue.dequeue concQ
+    let pr, seed, concQ = ConcolicQueue.dequeue concQ  // pr表示优先级
     if opt.Verbosity >= 1 then
       log "Grey-box concolic on %A seed : %s" pr (Seed.toString seed)
     let newSeeds = GreyConcolic.run seed opt
@@ -174,7 +174,7 @@ let run args =
   createDirectoryIfNotExists opt.OutDir
   Manager.initialize opt.OutDir
   Executor.initialize opt.OutDir opt.Verbosity
-  Executor.initialize_exec Executor.TimeoutHandling.SendSigterm
+  Executor.initialize_exec Executor.TimeoutHandling.SendSigterm //信号处理之类，比较底层
   Executor.prepareSharedMem ()
   if opt.FuzzMode = StdinFuzz || opt.FuzzMode = FileFuzz then
     Executor.initForkServer opt

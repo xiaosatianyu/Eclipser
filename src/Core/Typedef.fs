@@ -21,6 +21,7 @@ module Arch =
     | "x64" -> X64
     | _ -> raise UnsupportedArchException
 
+//枚举
 /// Fuzzing modes that specify input source to fuzz.
 type FuzzMode =
   /// Fuzz command line argument input source.

@@ -54,7 +54,7 @@ module Input =
     | Some idx -> bytesToStr bytes.[0 .. (idx - 1)]
 
   /// Get current byte value pointed by input's cursor.
-  let getCurByteVal input = input.ByteVals.[input.ByteCursor]
+  let getCurByteVal input = input.ByteVals.[input.ByteCursor] // 访问数组元素
 
   /// Check if the given input has any unfixed ByteVal.
   let hasUnfixedByte input = Array.exists ByteVal.isUnfixed input.ByteVals

@@ -1,9 +1,10 @@
 module Eclipser.Options
 
-open Argu
+open Argu // F#参数配置库
 open Utils
 open Config
 
+//引擎运行参数 来自Argu模块 github上有教程
 type FuzzerCLI =
   | [<AltCommandLine("-p")>] [<Mandatory>] [<Unique>] Program of path: string
   | [<AltCommandLine("-v")>] [<Unique>] Verbose of int
@@ -58,6 +59,7 @@ with
       | GreyConcolicOnly -> "Perform grey-box concolic testing only."
       | RandFuzzOnly -> "Perform random fuzzing only."
 
+//记录参数信息，记录表示已命名值的简单聚合
 type FuzzOption = {
   Verbosity         : int
   OutDir            : string
@@ -70,7 +72,8 @@ type FuzzOption = {
   Architecture      : Arch
   // Options related to seed
   InitSeedsDir      : string
-  MaxArgLen         : int list
+  //基于模版的list
+  MaxArgLen         : int list 
   MaxFileLen        : int
   MaxStdInLen       : int
   InitArg           : string
@@ -81,7 +84,7 @@ type FuzzOption = {
   GreyConcolicOnly  : bool
   RandFuzzOnly      : bool
 }
-
+//解析fuzz模式的参数
 let parseFuzzOption (args: string array) =
   let cmdPrefix = "dotnet Eclipser.dll fuzz"
   let parser = ArgumentParser.Create<FuzzerCLI> (programName = cmdPrefix)

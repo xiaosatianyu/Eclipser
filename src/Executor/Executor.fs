@@ -19,7 +19,7 @@ type TimeoutHandling =
   /// Send SIGTERM to the process
   | SendSigterm = 0
   /// Attach to the process with GDB and quit()
-  | GDBQuit = 1
+  | GDBQuit = 1 //TODO 研究一下 这个模式
 
 /// Mode of coverage tracer execution.
 type CoverageTracerMode =
@@ -132,7 +132,7 @@ let incrExecutionCount () =
 let mutable forkServerEnabled = false
 
 let initForkServer opt =
-  forkServerEnabled <- true
+  forkServerEnabled <- true //赋值
   set_env("CK_FORK_SERVER", "1")
   let white = [| ' '; '\t'; '\n' |]
   let initArgStr = opt.InitArg
