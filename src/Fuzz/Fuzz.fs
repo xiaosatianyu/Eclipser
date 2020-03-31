@@ -151,6 +151,7 @@ let rec fuzzLoop opt concQ randQ =
                 else randQ
     fuzzLoop opt concQ randQ
 
+//async 定义为异步模式,异步编程
 let fuzzingTimer timeoutSec queueDir = async {
   let timespan = System.TimeSpan(0, 0, 0, timeoutSec)
   System.Threading.Thread.Sleep(timespan )

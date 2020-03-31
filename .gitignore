@@ -6,10 +6,6 @@ build/
 bin/
 obj/
 
-# Visual Studio 2015 cache/options directory
-.vs/
-# Visual Studio Code directory
-.vscode/
 
 #etc
 Instrumentor/sparsehash/sparsehash-2.0.3

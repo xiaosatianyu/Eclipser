@@ -1,0 +1,21 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [  
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/build/Eclipser.dll",
+            "args": ["fuzz","-p","${workspaceFolder}/examples/motiv.bin","-t","5000","-v","1","-o","${workspaceFolder}/examples/box/output","--src","file","--maxfilelen","9","-f","${workspaceFolder}/examples/box/input"],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": true,
+            "console": "internalConsole",
+            "enableStepFiltering": false
+        },
+        
+    ]
+}
