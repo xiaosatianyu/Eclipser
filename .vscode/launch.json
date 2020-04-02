@@ -10,11 +10,11 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/build/Eclipser.dll",
-            "args": ["fuzz","-p","${workspaceFolder}/examples/motiv.bin","-t","5000","-v","1","-o","${workspaceFolder}/examples/box/output","--src","file","--maxfilelen","9","-f","${workspaceFolder}/examples/box/input"],
+            "args": ["fuzz","-p","${workspaceFolder}/examples/cmp.bin","-t","200000","-v","1","-o","${workspaceFolder}/examples/box/output","--src","auto","--maxarglen", "8","--maxfilelen","16","--architecture","x86"],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": true,
-            "console": "internalConsole",
-            "enableStepFiltering": false
+            "stopAtEntry": false,
+            "console": "internalConsole"
+            //"enableStepFiltering": false
         },
         
     ]

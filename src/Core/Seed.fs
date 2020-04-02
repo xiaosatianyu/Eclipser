@@ -7,7 +7,7 @@ open BytesUtils
 
 type InputSrc =
   | StdInput
-  | FileInput of int (* argv[] index *)
+  | FileInput of int (* argv[] index *) // (* *)是注释
 
 /// Represents the file path, which can be either an index of command-line
 /// argument, or a constant string.
